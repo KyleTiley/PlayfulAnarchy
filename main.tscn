@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=3 uid="uid://l8mvkp42x1c0"]
+
+[ext_resource type="Texture2D" uid="uid://8f772loc4266" path="res://Assets/Floor.png" id="1_0lssa"]
+[ext_resource type="Script" path="res://Game.gd" id="1_2n5kd"]
+[ext_resource type="PackedScene" uid="uid://dgn3sgi6eh5qg" path="res://player.tscn" id="2_g2fjy"]
+[ext_resource type="Script" path="res://CopSpawner.gd" id="4_7bfta"]
+[ext_resource type="Script" path="res://Menu.gd" id="4_8g5y1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbo67"]
+size = Vector2(20, 360)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3occi"]
+size = Vector2(640, 20)
+
+[node name="Main" type="Node"]
+
+[node name="Game" type="Node2D" parent="."]
+script = ExtResource("1_2n5kd")
+
+[node name="TextureRect" type="TextureRect" parent="Game"]
+texture_filter = 1
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("1_0lssa")
+stretch_mode = 1
+
+[node name="Player" parent="Game" instance=ExtResource("2_g2fjy")]
+
+[node name="Boundaries" type="Node2D" parent="Game"]
+
+[node name="Area2D" type="Area2D" parent="Game/Boundaries"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Boundaries/Area2D"]
+position = Vector2(-10, 180)
+shape = SubResource("RectangleShape2D_nbo67")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Game/Boundaries/Area2D"]
+position = Vector2(650, 180)
+shape = SubResource("RectangleShape2D_nbo67")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Game/Boundaries/Area2D"]
+position = Vector2(320, -10)
+shape = SubResource("RectangleShape2D_3occi")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Game/Boundaries/Area2D"]
+position = Vector2(320, 370)
+shape = SubResource("RectangleShape2D_3occi")
+
+[node name="CopSpawner" type="Node2D" parent="Game"]
+script = ExtResource("4_7bfta")
+
+[node name="Spawn1" type="Node2D" parent="Game/CopSpawner"]
+position = Vector2(160, -50)
+
+[node name="Spawn2" type="Node2D" parent="Game/CopSpawner"]
+position = Vector2(480, -50)
+
+[node name="Spawn3" type="Node2D" parent="Game/CopSpawner"]
+position = Vector2(690, 180)
+
+[node name="Spawn4" type="Node2D" parent="Game/CopSpawner"]
+position = Vector2(480, 410)
+
+[node name="Spawn5" type="Node2D" parent="Game/CopSpawner"]
+position = Vector2(160, 410)
+
+[node name="Spawn6" type="Node2D" parent="Game/CopSpawner"]
+position = Vector2(-50, 180)
+
+[node name="Camera2D" type="Camera2D" parent="Game"]
+position = Vector2(320, 180)
+enabled = false
+zoom = Vector2(0.635, 0.635)
+
+[node name="Menu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_8g5y1")
+
+[node name="Button" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 299.0
+offset_top = 229.0
+offset_right = 346.0
+offset_bottom = 260.0
+text = "PLAY"
+
+[connection signal="area_entered" from="Game/Boundaries/Area2D" to="Game/Player" method="_on_area_2d_area_entered"]
+[connection signal="pressed" from="Menu/Button" to="Game/Player" method="_on_button_pressed"]

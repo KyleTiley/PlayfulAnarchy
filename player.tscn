@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3 uid="uid://dgn3sgi6eh5qg"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_j1uus"]
+[ext_resource type="Texture2D" uid="uid://330eh6nkc6vg" path="res://Assets/Skateboard.png" id="2_vc4ct"]
+[ext_resource type="Texture2D" uid="uid://cfn7qmj64agjm" path="res://Assets/Player.png" id="3_uigc8"]
+[ext_resource type="Script" path="res://Guitar.gd" id="4_d3swj"]
+[ext_resource type="Texture2D" uid="uid://dahupdexe7n1s" path="res://Assets/Guitar.png" id="5_t74mf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtpwn"]
+size = Vector2(48, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgsoy"]
+size = Vector2(16, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ytml"]
+size = Vector2(20, 16)
+
+[sub_resource type="Animation" id="Animation_5g42k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skateboard:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x81tu"]
+resource_name = "board"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skateboard:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mnenl"]
+_data = {
+"RESET": SubResource("Animation_5g42k"),
+"board": SubResource("Animation_x81tu")
+}
+
+[node name="Player" type="Node2D"]
+position = Vector2(520, 180)
+script = ExtResource("1_j1uus")
+
+[node name="Skateboard" type="Node2D" parent="."]
+position = Vector2(0, -2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Skateboard"]
+texture_filter = 1
+texture = ExtResource("2_vc4ct")
+
+[node name="Area2D" type="Area2D" parent="Skateboard"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skateboard/Area2D"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_rtpwn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -21)
+texture = ExtResource("3_uigc8")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 4)
+shape = SubResource("RectangleShape2D_lgsoy")
+
+[node name="Guitar" type="Node2D" parent="."]
+position = Vector2(-7, -11)
+script = ExtResource("4_d3swj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Guitar"]
+texture_filter = 1
+position = Vector2(16, 0)
+rotation = -3.14159
+texture = ExtResource("5_t74mf")
+
+[node name="Area2D" type="Area2D" parent="Guitar"]
+position = Vector2(31, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guitar/Area2D"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_6ytml")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "board"
+libraries = {
+"": SubResource("AnimationLibrary_mnenl")
+}
