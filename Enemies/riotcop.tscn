@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bs6217l03mnwl" path="res://Assets/Riotshield.png" id="3_kbso2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jm1pj"]
+resource_local_to_scene = true
 shader = ExtResource("2_h5nn5")
 shader_parameter/flash_opacity = 1.0
 shader_parameter/flash_color = Color(1, 1, 1, 1)
@@ -14,6 +15,7 @@ shader_parameter/flash_color = Color(1, 1, 1, 1)
 size = Vector2(20, 37)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_arm6t"]
+resource_local_to_scene = true
 shader = ExtResource("2_h5nn5")
 shader_parameter/flash_opacity = 0.0
 shader_parameter/flash_color = Color(1, 1, 1, 1)

@@ -4,7 +4,7 @@ extends Node2D
 var player_position
 var target_position
 var cop_speed = 50
-var knockback_strength = 100
+var knockback_strength = 1.5
 
 func _physics_process(delta):
 	var x_diff = global_position.x - player.global_position.x
@@ -25,7 +25,7 @@ func _on_area_2d_area_entered(area):
 		get_tree().quit()
 
 func knock_back(_area):
-	var direction = (_area.get_parent().position - self.position).normalized()
+	var direction = (self.global_position - _area.get_parent().global_position)
 	$AnimationPlayer.play("white_hit")
 	self.move_local_x(direction.x * knockback_strength)
 	self.move_local_y(direction.y * knockback_strength)
