@@ -1,7 +1,7 @@
 extends Node2D
 
 var spawn_locations = []
-var spawn_time = 3
+var spawn_time = 100
 var time_count = spawn_time
 var spawn_count = 0
 var cop = load("res://Enemies/cop.tscn")

@@ -17,7 +17,7 @@ func throw():
 	await get_tree().create_timer(3).timeout
 	explode()
 
-func _process(delta):
+func _physics_process(delta):
 	t += delta / duration
 	var q0 = positionA.lerp(positionC, min(t, 1.0))
 	var q1 = positionC.lerp(positionB, min(t, 1.0))

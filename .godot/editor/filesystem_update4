@@ -1,9 +1,8 @@
 res://main.tscn
-res://Game.gd
-res://Enemies/Grenade.gd
 res://Enemies/grenade.tscn
-res://Enemies/BombSpawner.gd
-res://Enemies/GrenadeSpawner.gd
-res://Enemies/CopSpawner.gd
-res://Enemies/RiotCop.gd
 res://Enemies/riotcop.tscn
+res://Enemies/Cop.gd
+res://Enemies/RiotCop.gd
+res://Enemies/CopSpawner.gd
+res://Enemies/Grenade.gd
+res://Player/player.tscn

@@ -85,7 +85,20 @@ position = Vector2(-50, 410)
 
 [node name="DebugCamera2D" type="Camera2D" parent="Game"]
 position = Vector2(320, 180)
+enabled = false
 zoom = Vector2(0.635, 0.635)
+
+[node name="GameUI" type="Control" parent="Game"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Game/GameUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "132913981"
 
 [node name="Menu" type="Control" parent="."]
 visible = false
