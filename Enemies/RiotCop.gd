@@ -33,3 +33,8 @@ func shield_break(_area):
 	var direction = (_area.get_parent().position - self.position).normalized()
 	self.move_local_x(direction.x * knockback_strength)
 	self.move_local_y(direction.y * knockback_strength)
+
+func knock_back(_area):
+	var direction = (_area.get_parent().position - self.position).normalized()
+	self.move_local_x(direction.x * knockback_strength)
+	self.move_local_y(direction.y * knockback_strength)

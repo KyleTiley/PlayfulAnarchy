@@ -1,7 +1,7 @@
 extends Node2D
 
 var spawn_locations = []
-var spawn_time = 100
+var spawn_time = 3
 var time_count = spawn_time
 var spawn_count = 0
 var cop = load("res://Enemies/cop.tscn")
@@ -21,7 +21,7 @@ func _physics_process(delta):
 		if new_rand < 80:
 			new_cop = cop.instantiate()
 		else:
-			new_cop = riot_cop.instantiate()
+			new_cop = cop.instantiate()
 		get_parent().add_child(new_cop)
 		new_cop.position = spawn_locations[random_number_generator(0, spawn_locations.size())].position
 

@@ -4,6 +4,7 @@ extends Node2D
 var player_position
 var target_position
 var cop_speed = 50
+var knockback_strength = 100
 
 func _physics_process(delta):
 	var x_diff = global_position.x - player.global_position.x
@@ -15,8 +16,16 @@ func _physics_process(delta):
 
 func _on_area_2d_area_entered(area):
 	if area.get_parent().name == "Guitar":
+		knock_back(area)
+		await get_tree().create_timer(1).timeout
 		self.queue_free()
 	if area.get_parent().name == "Skateboard":
 		pass
 	if area.get_parent().name == "Player":
 		get_tree().quit()
+
+func knock_back(_area):
+	var direction = (_area.get_parent().position - self.position).normalized()
+	self.modulate = Color(100,100,100,1)
+	self.move_local_x(direction.x * knockback_strength)
+	self.move_local_y(direction.y * knockback_strength)

@@ -6,3 +6,4 @@ res://Enemies/RiotCop.gd
 res://Enemies/CopSpawner.gd
 res://Enemies/Grenade.gd
 res://Player/player.tscn
+res://Enemies/cop.tscn
