@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://dgn3sgi6eh5qg"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_j1uus"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_j1uus"]
 [ext_resource type="Texture2D" uid="uid://330eh6nkc6vg" path="res://Assets/Skateboard.png" id="2_vc4ct"]
 [ext_resource type="Texture2D" uid="uid://cfn7qmj64agjm" path="res://Assets/Player.png" id="3_uigc8"]
-[ext_resource type="Script" path="res://Guitar.gd" id="4_d3swj"]
+[ext_resource type="Script" path="res://Player/Guitar.gd" id="4_d3swj"]
 [ext_resource type="Texture2D" uid="uid://dahupdexe7n1s" path="res://Assets/Guitar.png" id="5_t74mf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtpwn"]

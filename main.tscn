@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://8f772loc4266" path="res://Assets/Floor.png" id="1_0lssa"]
 [ext_resource type="Script" path="res://Game.gd" id="1_2n5kd"]
-[ext_resource type="PackedScene" uid="uid://dgn3sgi6eh5qg" path="res://player.tscn" id="2_g2fjy"]
-[ext_resource type="Script" path="res://CopSpawner.gd" id="4_7bfta"]
+[ext_resource type="PackedScene" uid="uid://dgn3sgi6eh5qg" path="res://Player/player.tscn" id="2_g2fjy"]
 [ext_resource type="Script" path="res://Menu.gd" id="4_8g5y1"]
+[ext_resource type="Script" path="res://Enemies/CopSpawner.gd" id="4_arvbg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbo67"]
 size = Vector2(20, 360)
@@ -47,7 +47,7 @@ position = Vector2(320, 370)
 shape = SubResource("RectangleShape2D_3occi")
 
 [node name="CopSpawner" type="Node2D" parent="Game"]
-script = ExtResource("4_7bfta")
+script = ExtResource("4_arvbg")
 
 [node name="Spawn1" type="Node2D" parent="Game/CopSpawner"]
 position = Vector2(160, -50)
@@ -71,6 +71,8 @@ position = Vector2(-50, 180)
 position = Vector2(320, 180)
 enabled = false
 zoom = Vector2(0.635, 0.635)
+
+[node name="BombSpawner" type="Node2D" parent="Game"]
 
 [node name="Menu" type="Control" parent="."]
 visible = false
