@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dgn3sgi6eh5qg" path="res://Player/player.tscn" id="2_g2fjy"]
 [ext_resource type="Script" path="res://Menu.gd" id="4_8g5y1"]
 [ext_resource type="Script" path="res://Enemies/CopSpawner.gd" id="4_arvbg"]
-[ext_resource type="Script" path="res://Enemies/BombSpawner.gd" id="5_27r57"]
+[ext_resource type="Script" path="res://Enemies/GrenadeSpawner.gd" id="5_1g38f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbo67"]
 size = Vector2(20, 360)
@@ -68,19 +68,19 @@ position = Vector2(160, 410)
 [node name="Spawn6" type="Node2D" parent="Game/CopSpawner"]
 position = Vector2(-50, 180)
 
-[node name="BombSpawner" type="Node2D" parent="Game"]
-script = ExtResource("5_27r57")
+[node name="GrenadeSpawner" type="Node2D" parent="Game"]
+script = ExtResource("5_1g38f")
 
-[node name="Spawn1" type="Node2D" parent="Game/BombSpawner"]
+[node name="Spawn1" type="Node2D" parent="Game/GrenadeSpawner"]
 position = Vector2(-50, -50)
 
-[node name="Spawn2" type="Node2D" parent="Game/BombSpawner"]
+[node name="Spawn2" type="Node2D" parent="Game/GrenadeSpawner"]
 position = Vector2(690, -50)
 
-[node name="Spawn3" type="Node2D" parent="Game/BombSpawner"]
+[node name="Spawn3" type="Node2D" parent="Game/GrenadeSpawner"]
 position = Vector2(690, 410)
 
-[node name="Spawn4" type="Node2D" parent="Game/BombSpawner"]
+[node name="Spawn4" type="Node2D" parent="Game/GrenadeSpawner"]
 position = Vector2(-50, 410)
 
 [node name="DebugCamera2D" type="Camera2D" parent="Game"]

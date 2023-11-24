@@ -8,6 +8,7 @@ var grenade = load("res://Enemies/grenade.tscn")
 func _ready():
 	for child in self.get_children():
 		spawn_locations.append(child)
+	print(spawn_locations)
 
 func _physics_process(delta):
 	time_count += delta
@@ -16,6 +17,7 @@ func _physics_process(delta):
 		var new_grenade = grenade.instantiate()
 		get_parent().add_child(new_grenade)
 		new_grenade.position = spawn_locations[random_number_generator(0, spawn_locations.size())].position
+		new_grenade.throw()
 
 func random_number_generator(_min, _max):
 	var rng = RandomNumberGenerator.new()
