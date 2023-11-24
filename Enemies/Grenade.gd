@@ -4,6 +4,7 @@ extends Node2D
 var positionA
 var positionB
 var positionC
+var has_exploded = false
 
 var t = 0.0
 var duration = 2.0
@@ -23,7 +24,14 @@ func _process(delta):
 	position = q0.lerp(q1, min(t, 1.0))
 
 func explode():
+	has_exploded = true
 	$Sprite2D.hide()
 	$AnimationPlayer.play("explode")
 	await get_tree().create_timer(0.2).timeout
 	queue_free()
+
+func _on_area_2d_area_entered(area):
+	if !has_exploded:
+		return
+	if area.get_parent().name == "Guitar" or area.get_parent().name == "Skateboard" or area.get_parent().name == "Player":
+		area.get_parent().get_parent().hide()

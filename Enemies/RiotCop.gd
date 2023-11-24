@@ -4,6 +4,7 @@ extends Node2D
 var player_position
 var target_position
 var cop_speed = 50
+var shield_broken = false
 
 func _physics_process(delta):
 	var x_diff = global_position.x - player.global_position.x
@@ -14,8 +15,14 @@ func _physics_process(delta):
 
 func _on_area_2d_area_entered(area):
 	if area.get_parent().name == "Guitar":
+		if !shield_broken:
+			shield_break()
+		return
 		self.queue_free()
 	if area.get_parent().name == "Skateboard":
 		print("hit board")
 	if area.get_parent().name == "Player":
 		get_tree().quit()
+
+func shield_break():
+	$Shield.hide()

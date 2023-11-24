@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1uk8n3wwfus8"]
+[gd_scene load_steps=8 format=3 uid="uid://c1uk8n3wwfus8"]
 
 [ext_resource type="Script" path="res://Enemies/Grenade.gd" id="1_1cymy"]
 [ext_resource type="Texture2D" uid="uid://d22716xm2weu1" path="res://Assets/Grenade.png" id="2_hrp8a"]
 [ext_resource type="Texture2D" uid="uid://diq7t5knvgvb4" path="res://Assets/Explosion.png" id="3_l6p6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_betc5"]
+size = Vector2(48, 48)
 
 [sub_resource type="Animation" id="Animation_sqc80"]
 resource_name = "explode"
@@ -55,7 +58,14 @@ scale = Vector2(1e-05, 1e-05)
 texture_filter = 1
 texture = ExtResource("3_l6p6e")
 
+[node name="Area2D" type="Area2D" parent="Explosion"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Explosion/Area2D"]
+shape = SubResource("RectangleShape2D_betc5")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_2m7fk")
 }
+
+[connection signal="area_entered" from="Explosion/Area2D" to="." method="_on_area_2d_area_entered"]
