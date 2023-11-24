@@ -17,7 +17,7 @@ func _physics_process(delta):
 func _on_area_2d_area_entered(area):
 	if area.get_parent().name == "Guitar":
 		knock_back(area)
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(0.3).timeout
 		self.queue_free()
 	if area.get_parent().name == "Skateboard":
 		pass
@@ -26,6 +26,6 @@ func _on_area_2d_area_entered(area):
 
 func knock_back(_area):
 	var direction = (_area.get_parent().position - self.position).normalized()
-	self.modulate = Color(100,100,100,1)
+	$AnimationPlayer.play("white_hit")
 	self.move_local_x(direction.x * knockback_strength)
 	self.move_local_y(direction.y * knockback_strength)

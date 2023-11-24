@@ -19,9 +19,9 @@ func _physics_process(delta):
 		var new_rand = random_number_generator(0, 100)
 		var new_cop
 		if new_rand < 80:
-			new_cop = cop.instantiate()
+			new_cop = riot_cop.instantiate()
 		else:
-			new_cop = cop.instantiate()
+			new_cop = riot_cop.instantiate()
 		get_parent().add_child(new_cop)
 		new_cop.position = spawn_locations[random_number_generator(0, spawn_locations.size())].position
 

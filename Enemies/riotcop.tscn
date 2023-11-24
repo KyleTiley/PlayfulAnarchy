@@ -1,8 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://20hwsoafyu2w"]
+[gd_scene load_steps=14 format=3 uid="uid://20hwsoafyu2w"]
 
 [ext_resource type="Script" path="res://Enemies/RiotCop.gd" id="1_m2n3q"]
 [ext_resource type="Texture2D" uid="uid://b4rejmvvcif0n" path="res://Assets/Cop.png" id="2_4cb8a"]
+[ext_resource type="Shader" path="res://Enemies/white_flash.gdshader" id="2_h5nn5"]
 [ext_resource type="Texture2D" uid="uid://bs6217l03mnwl" path="res://Assets/Riotshield.png" id="3_kbso2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jm1pj"]
+shader = ExtResource("2_h5nn5")
+shader_parameter/flash_opacity = 1.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4bbe"]
+size = Vector2(20, 37)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_arm6t"]
+shader = ExtResource("2_h5nn5")
+shader_parameter/flash_opacity = 0.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esd5s"]
+size = Vector2(16, 32)
 
 [sub_resource type="Animation" id="Animation_lkmyv"]
 length = 0.001
@@ -25,6 +42,30 @@ tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:material:shader_parameter/flash_opacity")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shield/Sprite2D:material:shader_parameter/flash_opacity")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -59,32 +100,67 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0, -0.0872665, 0.0, 0.0872665, 0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:material:shader_parameter/flash_opacity")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0x3te"]
+resource_name = "white_hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rps0o"]
+resource_name = "break_shield"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shield/Sprite2D:material:shader_parameter/flash_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8lp1j"]
 _data = {
 "RESET": SubResource("Animation_lkmyv"),
-"bob": SubResource("Animation_eiita")
+"bob": SubResource("Animation_eiita"),
+"break_shield": SubResource("Animation_rps0o"),
+"white_hit": SubResource("Animation_0x3te")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4bbe"]
-size = Vector2(20, 37)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_esd5s"]
-size = Vector2(16, 32)
 
 [node name="RiotCop" type="Node2D"]
 script = ExtResource("1_m2n3q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_jm1pj")
 position = Vector2(0, -18.5)
 texture = ExtResource("2_4cb8a")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "bob"
-libraries = {
-"": SubResource("AnimationLibrary_8lp1j")
-}
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -96,6 +172,7 @@ shape = SubResource("RectangleShape2D_n4bbe")
 
 [node name="Sprite2D" type="Sprite2D" parent="Shield"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_arm6t")
 position = Vector2(-6, -17)
 texture = ExtResource("3_kbso2")
 
@@ -104,5 +181,11 @@ texture = ExtResource("3_kbso2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shield/Area2D"]
 position = Vector2(-6, -17)
 shape = SubResource("RectangleShape2D_esd5s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "bob"
+libraries = {
+"": SubResource("AnimationLibrary_8lp1j")
+}
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

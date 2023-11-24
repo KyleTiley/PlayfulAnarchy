@@ -29,10 +29,12 @@ func _on_area_2d_area_entered(area):
 
 func shield_break(_area):
 	shield_broken = true
-	$Shield.hide()
+	$AnimationPlayer.play("break_shield")
 	var direction = (_area.get_parent().position - self.position).normalized()
 	self.move_local_x(direction.x * knockback_strength)
 	self.move_local_y(direction.y * knockback_strength)
+	await get_tree().create_timer(0.3).timeout
+	$Shield.hide()
 
 func knock_back(_area):
 	var direction = (_area.get_parent().position - self.position).normalized()
