@@ -8,7 +8,6 @@ var grenade = load("res://Enemies/grenade.tscn")
 func _ready():
 	for child in self.get_children():
 		spawn_locations.append(child)
-	print(spawn_locations)
 
 func _physics_process(delta):
 	time_count += delta
