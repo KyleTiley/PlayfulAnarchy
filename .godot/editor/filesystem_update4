@@ -1,3 +1,5 @@
 res://main.tscn
-res://CopSpawner.gd
+res://Game.gd
+res://Enemies/Grenade.gd
 res://Enemies/grenade.tscn
+res://Enemies/BombSpawner.gd
