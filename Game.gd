@@ -16,5 +16,7 @@ func restart_game():
 	get_tree().reload_current_scene()
 
 func _on_try_again_pressed():
+	$"../UI_Click".play()
+	await get_tree().create_timer(0.3).timeout
 	restart_game()
 	Global.score = 0

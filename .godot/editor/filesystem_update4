@@ -14,3 +14,4 @@ res://Player/Player.gd
 res://global.gd
 res://Enemies/Grenade.gd
 res://GameUI.gd
+res://AudioStreamPlayer2D.gd
