@@ -73,6 +73,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_eiita"]
 resource_name = "bob"
@@ -146,6 +158,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [1.0, 1.0, 0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8lp1j"]
 _data = {
@@ -161,8 +185,8 @@ script = ExtResource("1_m2n3q")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 material = SubResource("ShaderMaterial_jm1pj")
-position = Vector2(0, -18.5)
 texture = ExtResource("2_4cb8a")
+offset = Vector2(0, -18.5)
 
 [node name="Area2D" type="Area2D" parent="."]
 

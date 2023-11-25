@@ -5,7 +5,7 @@ var player_position
 var target_position
 var cop_speed = 50
 var shield_broken = false
-var knockback_strength = 1.5
+var knockback_strength = 0.5
 
 func _physics_process(delta):
 	var x_diff = global_position.x - player.global_position.x

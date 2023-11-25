@@ -1,10 +1,10 @@
-TextureButton
-TextureRect
 Control
 Label
+AnimationPlayer
+TextureButton
+TextureRect
 RichTextLabel
 CollisionShape2D
 Area2D
-AnimationPlayer
 Sprite2D
 Node2D

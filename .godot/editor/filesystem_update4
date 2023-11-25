@@ -6,3 +6,5 @@ res://Player/player.tscn
 res://Enemies/cop.tscn
 res://Menu.gd
 res://Game.gd
+res://Enemies/RiotCop.gd
+res://Enemies/Cop.gd
