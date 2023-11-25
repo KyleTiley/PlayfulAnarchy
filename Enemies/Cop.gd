@@ -18,7 +18,7 @@ func _on_area_2d_area_entered(area):
 	if area.get_parent().name == "Guitar":
 		knock_back(area)
 		$Area2D/CollisionShape2D.set_deferred("disabled", true)
-#		Game.score += 10
+		Game.score += 10
 		await get_tree().create_timer(0.3).timeout
 		self.queue_free()
 	if area.get_parent().name == "Skateboard":

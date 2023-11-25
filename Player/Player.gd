@@ -13,7 +13,7 @@ func _physics_process(delta):
 	player_movement(delta)
 	count += delta
 	if count > 0.5:
-#		Game.score += 1
+		Game.score += 1
 		count = 0
 
 func player_movement(_delta):
@@ -47,4 +47,5 @@ func _on_game_start_game():
 
 func _on_game_end_game(cause_of_death):
 	game_started = false
+	print("Died to: " + cause_of_death)
 	self.queue_free()
