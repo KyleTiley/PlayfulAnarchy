@@ -1,5 +1,7 @@
 extends Node2D
 
+var score = 0 
+
 signal StartGame
 signal EndGame
 

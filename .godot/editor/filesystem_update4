@@ -13,3 +13,4 @@ res://Enemies/GrenadeSpawner.gd
 res://Player/Player.gd
 res://global.gd
 res://Enemies/Grenade.gd
+res://GameUI.gd
