@@ -27,11 +27,11 @@ func player_movement(_delta):
 		flip_player()
 	if Input.is_action_pressed("up_input"):
 		if rotation * facing < -1.5:
-			return
+			flip_player()
 		rotate(-facing * turn_speed * _delta)
 	if Input.is_action_pressed("down_input"):
 		if rotation * facing > 1.5:
-			return
+			flip_player()
 		rotate(facing * turn_speed * _delta)
 
 func _on_area_2d_area_entered(area):
@@ -48,5 +48,4 @@ func _on_game_start_game():
 func _on_game_end_game(cause_of_death):
 	game_started = false
 	print("Died to: " + cause_of_death)
-	self.queue_free()
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
