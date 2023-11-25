@@ -293,9 +293,9 @@ texture = ExtResource("11_vi1af")
 texture_filter = 1
 layout_mode = 0
 offset_left = 24.0
-offset_top = 221.0
+offset_top = 207.0
 offset_right = 184.0
-offset_bottom = 253.0
+offset_bottom = 239.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("7_vdh40")
 
@@ -313,9 +313,20 @@ theme_override_font_sizes/font_size = 500
 text = "RIOT AGAIN?"
 
 [node name="Label" type="Label" parent="Game/GameUI/GameOver"]
+texture_filter = 1
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 13.0
+offset_top = 24.0
+offset_right = 4071.0
+offset_bottom = 2040.0
+scale = Vector2(0.065, 0.065)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_feiii")
+theme_override_font_sizes/font_size = 500
+text = "Died to a 'nade...
+
+Gather your bits
+and RIOT again!"
 
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3
@@ -506,6 +517,7 @@ libraries = {
 [connection signal="EndGame" from="Game" to="Game/Player" method="_on_game_end_game"]
 [connection signal="EndGame" from="Game" to="Game/CopSpawner" method="_on_game_end_game"]
 [connection signal="EndGame" from="Game" to="Game/GrenadeSpawner" method="_on_game_end_game"]
+[connection signal="EndGame" from="Game" to="Game/GameUI" method="_on_game_end_game"]
 [connection signal="StartGame" from="Game" to="Game/Player" method="_on_game_start_game"]
 [connection signal="StartGame" from="Game" to="Game/CopSpawner" method="_on_game_start_game"]
 [connection signal="StartGame" from="Game" to="Game/GrenadeSpawner" method="_on_game_start_game"]

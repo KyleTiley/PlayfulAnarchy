@@ -11,6 +11,6 @@ func _on_game_end_game(cause_of_death):
 	$GameOver.show()
 	match cause_of_death:
 		"cop":
-			$GameOver/Label.text = "Cop killed you"
+			$GameOver/Label.text = "Cops got ya..." + '\n' + '\n'+ "We will bust you" + '\n' + "out the slammer"+ '\n' + "to RIOT again!"
 		"grenade":
-			$GameOver/Label.text = "Nade killed you"
+			$GameOver/Label.text = "Died to a 'nade..." + '\n' + '\n' + "Scrape your bits" + '\n' + "off of the floor" + '\n' + "and RIOT again!" 
