@@ -6,6 +6,8 @@ var turn_speed = 4
 var facing = -1
 
 func _physics_process(delta):
+	if !game_started:
+		return
 	move_local_x(-move_speed*delta)
 	player_movement(delta)
 
@@ -35,5 +37,5 @@ func flip_player():
 	scale.x = -scale.x
 	facing = -facing
 
-func _on_button_pressed():
+func _on_game_start_game():
 	game_started = true

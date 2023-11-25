@@ -1,8 +1,10 @@
 extends Control
 
-signal start_game
-
-func _on_button_pressed():
-	print("YES")
+func _on_play_button_pressed():
 	self.hide()
-	start_game.emit()
+
+func _on_rules_button_pressed():
+	$Rules.show()
+
+func _on_close_button_pressed():
+	$Rules.hide()

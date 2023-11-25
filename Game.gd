@@ -1,5 +1,9 @@
 extends Node2D
-#
-#func _ready():
-#	await get_tree().create_timer(3).timeout
-#	get_tree().paused = true
+
+signal StartGame
+
+func _on_play_button_pressed():
+	start_game()
+
+func start_game():
+	StartGame.emit()

@@ -1,4 +1,7 @@
+TextureRect
 Label
+RichTextLabel
+TextureButton
 Control
 CollisionShape2D
 Area2D

@@ -24,6 +24,10 @@ window/size/window_height_override=720
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="res://Assets/Cursor.png"
 
+[gui]
+
+theme/default_font_subpixel_positioning=0
+
 [input]
 
 left_input={

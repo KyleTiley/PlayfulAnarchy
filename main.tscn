@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://l8mvkp42x1c0"]
+[gd_scene load_steps=16 format=3 uid="uid://l8mvkp42x1c0"]
 
 [ext_resource type="Texture2D" uid="uid://8f772loc4266" path="res://Assets/Floor.png" id="1_0lssa"]
 [ext_resource type="Script" path="res://Game.gd" id="1_2n5kd"]
@@ -6,6 +6,13 @@
 [ext_resource type="Script" path="res://Menu.gd" id="4_8g5y1"]
 [ext_resource type="Script" path="res://Enemies/CopSpawner.gd" id="4_arvbg"]
 [ext_resource type="Script" path="res://Enemies/GrenadeSpawner.gd" id="5_1g38f"]
+[ext_resource type="Texture2D" uid="uid://dqo8f8ysdp7ko" path="res://Assets/PlayButton1.png" id="7_vdh40"]
+[ext_resource type="Texture2D" uid="uid://ohcuacy1nub4" path="res://Assets/PlayButton2.png" id="8_us1jp"]
+[ext_resource type="FontFile" uid="uid://j3p0hpvourpq" path="res://Assets/pixeltiley.ttf" id="9_feiii"]
+[ext_resource type="Texture2D" uid="uid://0iyvixp4ps5x" path="res://Assets/RulesButton1.png" id="9_gkb0k"]
+[ext_resource type="Texture2D" uid="uid://def1gqg4cmopf" path="res://Assets/RulesButton2.png" id="10_60i2t"]
+[ext_resource type="Texture2D" uid="uid://c4adfwv0se44x" path="res://Assets/NO.png" id="12_3a6oy"]
+[ext_resource type="Texture2D" uid="uid://bm5swhtfn7v1s" path="res://Assets/Exclame.png" id="13_ndpvt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbo67"]
 size = Vector2(20, 360)
@@ -101,20 +108,113 @@ offset_bottom = 23.0
 text = "132913981"
 
 [node name="Menu" type="Control" parent="."]
-visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("4_8g5y1")
 
-[node name="Button" type="Button" parent="Menu"]
-layout_mode = 0
-offset_left = 299.0
-offset_top = 229.0
-offset_right = 346.0
-offset_bottom = 260.0
-text = "PLAY"
+[node name="PlayButton" type="TextureButton" parent="Menu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -76.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture_normal = ExtResource("7_vdh40")
+texture_pressed = ExtResource("7_vdh40")
+texture_hover = ExtResource("8_us1jp")
 
+[node name="Label" type="Label" parent="Menu/PlayButton"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.5
+offset_top = 7.5
+offset_right = 158.5
+offset_bottom = 36.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_feiii")
+theme_override_font_sizes/font_size = 25
+text = "START RIOT"
+
+[node name="RulesButton" type="TextureButton" parent="Menu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = 11.0
+offset_right = -103.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture_normal = ExtResource("9_gkb0k")
+texture_pressed = ExtResource("9_gkb0k")
+texture_hover = ExtResource("10_60i2t")
+
+[node name="TextureRect" type="TextureRect" parent="Menu/RulesButton"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.5
+offset_right = 33.0
+offset_bottom = 28.5
+texture = ExtResource("12_3a6oy")
+
+[node name="Label" type="Label" parent="Menu/RulesButton"]
+texture_filter = 1
+offset_left = 35.5
+offset_top = 6.0
+offset_right = 132.5
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_feiii")
+theme_override_font_sizes/font_size = 30
+text = "RULES"
+
+[node name="TextureRect2" type="TextureRect" parent="Menu/RulesButton"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 133.5
+offset_top = 5.0
+offset_right = 137.5
+offset_bottom = 28.0
+texture = ExtResource("13_ndpvt")
+
+[node name="TextureRect3" type="TextureRect" parent="Menu/RulesButton"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 141.5
+offset_top = 4.5
+offset_right = 145.5
+offset_bottom = 27.5
+texture = ExtResource("13_ndpvt")
+
+[node name="TextureRect4" type="TextureRect" parent="Menu/RulesButton"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 149.0
+offset_top = 4.0
+offset_right = 153.0
+offset_bottom = 27.0
+texture = ExtResource("13_ndpvt")
+
+[connection signal="StartGame" from="Game" to="Game/Player" method="_on_game_start_game"]
+[connection signal="StartGame" from="Game" to="Game/CopSpawner" method="_on_game_start_game"]
+[connection signal="StartGame" from="Game" to="Game/GrenadeSpawner" method="_on_game_start_game"]
 [connection signal="area_entered" from="Game/Boundaries/Area2D" to="Game/Player" method="_on_area_2d_area_entered"]
-[connection signal="pressed" from="Menu/Button" to="Game/Player" method="_on_button_pressed"]
+[connection signal="pressed" from="Menu/PlayButton" to="Game" method="_on_play_button_pressed"]
+[connection signal="pressed" from="Menu/PlayButton" to="Menu" method="_on_play_button_pressed"]
+[connection signal="pressed" from="Menu/RulesButton" to="Menu" method="_on_rules_button_pressed"]
