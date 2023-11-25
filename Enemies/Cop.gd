@@ -18,13 +18,14 @@ func _on_area_2d_area_entered(area):
 	if area.get_parent().name == "Guitar":
 		knock_back(area)
 		$Area2D/CollisionShape2D.set_deferred("disabled", true)
-		Game.score += 10
+#		Game.score += 10
 		await get_tree().create_timer(0.3).timeout
 		self.queue_free()
 	if area.get_parent().name == "Skateboard":
 		pass
 	if area.get_parent().name == "Player":
-		Game.game_over("cop")
+		get_parent().game_over("cop")
+		self.queue_free()
 
 func knock_back(_area):
 	var direction = (self.global_position - _area.get_parent().global_position)

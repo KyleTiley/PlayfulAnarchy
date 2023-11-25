@@ -503,6 +503,9 @@ libraries = {
 "": SubResource("AnimationLibrary_fje6x")
 }
 
+[connection signal="EndGame" from="Game" to="Game/Player" method="_on_game_end_game"]
+[connection signal="EndGame" from="Game" to="Game/CopSpawner" method="_on_game_end_game"]
+[connection signal="EndGame" from="Game" to="Game/GrenadeSpawner" method="_on_game_end_game"]
 [connection signal="StartGame" from="Game" to="Game/Player" method="_on_game_start_game"]
 [connection signal="StartGame" from="Game" to="Game/CopSpawner" method="_on_game_start_game"]
 [connection signal="StartGame" from="Game" to="Game/GrenadeSpawner" method="_on_game_start_game"]
