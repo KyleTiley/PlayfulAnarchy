@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://l8mvkp42x1c0"]
+[gd_scene load_steps=27 format=3 uid="uid://l8mvkp42x1c0"]
 
 [ext_resource type="Texture2D" uid="uid://8f772loc4266" path="res://Assets/Floor.png" id="1_0lssa"]
 [ext_resource type="Script" path="res://Game.gd" id="1_2n5kd"]
@@ -24,6 +24,68 @@ size = Vector2(20, 360)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3occi"]
 size = Vector2(640, 20)
+
+[sub_resource type="Animation" id="Animation_2vm3t"]
+resource_name = "button"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TryAgain:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1.6, 1.6), Vector2(1.5, 1.5), Vector2(1.6, 1.6), Vector2(1.5, 1.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TryAgain:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, 0.0, -0.0872665, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bavsu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TryAgain:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TryAgain:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ihhnj"]
+_data = {
+"RESET": SubResource("Animation_bavsu"),
+"button": SubResource("Animation_2vm3t")
+}
 
 [sub_resource type="Animation" id="Animation_xuafj"]
 resource_name = "menu"
@@ -292,12 +354,15 @@ texture = ExtResource("11_vi1af")
 [node name="TryAgain" type="TextureButton" parent="Game/GameUI/GameOver"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 24.0
-offset_top = 207.0
-offset_right = 184.0
-offset_bottom = 239.0
+offset_left = 63.0
+offset_top = 221.0
+offset_right = 223.0
+offset_bottom = 253.0
 scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(80.6667, 16)
 texture_normal = ExtResource("7_vdh40")
+texture_pressed = ExtResource("7_vdh40")
+texture_hover = ExtResource("8_us1jp")
 
 [node name="Label" type="Label" parent="Game/GameUI/GameOver/TryAgain"]
 texture_filter = 1
@@ -327,6 +392,12 @@ text = "Died to a 'nade...
 
 Gather your bits
 and RIOT again!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/GameUI/GameOver"]
+autoplay = "button"
+libraries = {
+"": SubResource("AnimationLibrary_ihhnj")
+}
 
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3
@@ -522,6 +593,7 @@ libraries = {
 [connection signal="StartGame" from="Game" to="Game/CopSpawner" method="_on_game_start_game"]
 [connection signal="StartGame" from="Game" to="Game/GrenadeSpawner" method="_on_game_start_game"]
 [connection signal="area_entered" from="Game/Boundaries/Area2D" to="Game/Player" method="_on_area_2d_area_entered"]
+[connection signal="pressed" from="Game/GameUI/GameOver/TryAgain" to="Game" method="_on_try_again_pressed"]
 [connection signal="pressed" from="Menu/PlayButton" to="Game" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Menu/PlayButton" to="Menu" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Menu/RulesButton" to="Menu" method="_on_rules_button_pressed"]

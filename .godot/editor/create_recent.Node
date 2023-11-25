@@ -1,8 +1,8 @@
+AnimationPlayer
 Label
 TextureButton
 TextureRect
 Control
-AnimationPlayer
 RichTextLabel
 CollisionShape2D
 Area2D
