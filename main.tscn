@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://l8mvkp42x1c0"]
+[gd_scene load_steps=23 format=3 uid="uid://l8mvkp42x1c0"]
 
 [ext_resource type="Texture2D" uid="uid://8f772loc4266" path="res://Assets/Floor.png" id="1_0lssa"]
 [ext_resource type="Script" path="res://Game.gd" id="1_2n5kd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Menu.gd" id="4_8g5y1"]
 [ext_resource type="Script" path="res://Enemies/CopSpawner.gd" id="4_arvbg"]
 [ext_resource type="Script" path="res://Enemies/GrenadeSpawner.gd" id="5_1g38f"]
+[ext_resource type="Texture2D" uid="uid://ds5nbctcmdhf8" path="res://Assets/ScoreBack.png" id="6_pmsjl"]
 [ext_resource type="Texture2D" uid="uid://dqo8f8ysdp7ko" path="res://Assets/PlayButton1.png" id="7_vdh40"]
 [ext_resource type="Texture2D" uid="uid://ohcuacy1nub4" path="res://Assets/PlayButton2.png" id="8_us1jp"]
 [ext_resource type="FontFile" uid="uid://j3p0hpvourpq" path="res://Assets/pixeltiley.ttf" id="9_feiii"]
@@ -239,10 +240,30 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="Game/GameUI"]
+[node name="Score" type="Control" parent="Game/GameUI"]
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 164.0
+offset_bottom = 44.0
+
+[node name="TextureRect" type="TextureRect" parent="Game/GameUI/Score"]
+texture_filter = 1
 layout_mode = 0
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
+texture = ExtResource("6_pmsjl")
+
+[node name="Label" type="Label" parent="Game/GameUI/Score"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 11.0
+offset_right = 2677.0
+offset_bottom = 515.0
+scale = Vector2(0.05, 0.05)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_feiii")
+theme_override_font_sizes/font_size = 500
 text = "132913981"
 
 [node name="Menu" type="Control" parent="."]
@@ -250,6 +271,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 4.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_8g5y1")
@@ -282,9 +305,10 @@ offset_left = 4.5
 offset_top = 7.5
 offset_right = 158.5
 offset_bottom = 36.5
+scale = Vector2(0.05, 0.05)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("9_feiii")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 500
 text = "START RIOT"
 
 [node name="RulesButton" type="TextureButton" parent="Menu"]
@@ -322,9 +346,10 @@ offset_left = 41.0
 offset_top = 7.5
 offset_right = 123.0
 offset_bottom = 36.5
+scale = Vector2(0.05, 0.05)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("9_feiii")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 500
 text = "RULES"
 
 [node name="TextureRect2" type="TextureRect" parent="Menu/RulesButton"]
