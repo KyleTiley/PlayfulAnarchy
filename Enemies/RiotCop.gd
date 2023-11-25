@@ -29,14 +29,14 @@ func _on_area_2d_area_entered(area):
 	if area.get_parent().name == "Skateboard":
 		pass
 	if area.get_parent().name == "Player":
-		Game.restart_game()
+		Game.game_over("cop")
 
 func shield_break(_area):
 	shield_broken = true
 	$AnimationPlayer.play("break_shield")
 	var direction = (self.global_position - _area.get_parent().global_position)
-	self.move_local_x(direction.x * knockback_strength)
-	self.move_local_y(direction.y * knockback_strength)
+	self.move_local_x(direction.x * knockback_strength * 2)
+	self.move_local_y(direction.y * knockback_strength * 2)
 	await get_tree().create_timer(0.3).timeout
 	$Shield.hide()
 

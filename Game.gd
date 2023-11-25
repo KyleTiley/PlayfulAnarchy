@@ -11,8 +11,9 @@ func _on_play_button_pressed():
 func start_game():
 	StartGame.emit()
 
-func end_game():
+func game_over(cause_of_death):
 	EndGame.emit()
+	$"../Menu".game_over_screen(cause_of_death)
 
 func restart_game():
 	get_tree().reload_current_scene()
