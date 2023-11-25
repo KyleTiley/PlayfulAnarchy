@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://l8mvkp42x1c0"]
+[gd_scene load_steps=19 format=3 uid="uid://l8mvkp42x1c0"]
 
 [ext_resource type="Texture2D" uid="uid://8f772loc4266" path="res://Assets/Floor.png" id="1_0lssa"]
 [ext_resource type="Script" path="res://Game.gd" id="1_2n5kd"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c4adfwv0se44x" path="res://Assets/NO.png" id="12_3a6oy"]
 [ext_resource type="Texture2D" uid="uid://p7ggmtbyy8kn" path="res://Assets/CloseButton.png" id="12_tmwf6"]
 [ext_resource type="Texture2D" uid="uid://bm5swhtfn7v1s" path="res://Assets/Exclame.png" id="13_ndpvt"]
+[ext_resource type="Texture2D" uid="uid://balr4cvfmipxb" path="res://Assets/CloseButton2.png" id="16_8fr2y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbo67"]
 size = Vector2(20, 360)
@@ -214,6 +215,7 @@ offset_bottom = 28.0
 texture = ExtResource("13_ndpvt")
 
 [node name="Rules" type="Control" parent="Menu"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -231,7 +233,7 @@ offset_bottom = 108.0
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("11_vi1af")
 
-[node name="TextureButton" type="TextureButton" parent="Menu/Rules"]
+[node name="CloseButton" type="TextureButton" parent="Menu/Rules"]
 texture_filter = 1
 layout_mode = 0
 offset_left = 413.0
@@ -240,6 +242,8 @@ offset_right = 445.0
 offset_bottom = 55.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("12_tmwf6")
+texture_pressed = ExtResource("12_tmwf6")
+texture_hover = ExtResource("16_8fr2y")
 
 [connection signal="StartGame" from="Game" to="Game/Player" method="_on_game_start_game"]
 [connection signal="StartGame" from="Game" to="Game/CopSpawner" method="_on_game_start_game"]
@@ -248,3 +252,4 @@ texture_normal = ExtResource("12_tmwf6")
 [connection signal="pressed" from="Menu/PlayButton" to="Game" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Menu/PlayButton" to="Menu" method="_on_play_button_pressed"]
 [connection signal="pressed" from="Menu/RulesButton" to="Menu" method="_on_rules_button_pressed"]
+[connection signal="pressed" from="Menu/Rules/CloseButton" to="Menu" method="_on_close_button_pressed"]

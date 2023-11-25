@@ -4,3 +4,5 @@ res://Enemies/grenade.tscn
 res://Enemies/riotcop.tscn
 res://Player/player.tscn
 res://Enemies/cop.tscn
+res://Menu.gd
+res://Game.gd

@@ -8,3 +8,4 @@ func _on_rules_button_pressed():
 
 func _on_close_button_pressed():
 	$Rules.hide()
+
