@@ -23,11 +23,12 @@ func _physics_process(delta):
 	position = q0.lerp(q1, min(t, 1.0))
 
 func explode():
-	has_exploded = true
 	$Sprite2D.hide()
 	$AnimationPlayer.play("explode")
 	$Boom.play()
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.1).timeout
+	has_exploded = true
+	await get_tree().create_timer(0.4).timeout
 	$Explosion.hide()
 	$Explosion/Area2D/CollisionShape2D.set_deferred("disabled", true)
 	await get_tree().create_timer(2).timeout

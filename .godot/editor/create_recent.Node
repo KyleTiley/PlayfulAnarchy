@@ -1,10 +1,10 @@
+TextureRect
 AnimationPlayer
 Node2D
 AudioStreamPlayer
 AudioStreamPlayer2D
 Label
 TextureButton
-TextureRect
 Control
 RichTextLabel
 CollisionShape2D
