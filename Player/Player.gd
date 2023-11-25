@@ -45,5 +45,5 @@ func flip_player():
 func _on_game_start_game():
 	game_started = true
 
-func _on_game_end_game():
-	game_started = false
+func _on_game_end_game(cause_of_death):
+	print(cause_of_death)

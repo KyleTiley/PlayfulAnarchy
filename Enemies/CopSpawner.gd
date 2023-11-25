@@ -36,5 +36,6 @@ func random_number_generator(_min, _max):
 func _on_game_start_game():
 	game_started = true
 
-func _on_game_end_game():
+func _on_game_end_game(cause_of_death):
 	game_started = false
+	print("Died to :" + cause_of_death)

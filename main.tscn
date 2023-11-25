@@ -243,6 +243,7 @@ offset_bottom = 40.0
 script = ExtResource("6_cgp47")
 
 [node name="Score" type="Control" parent="Game/GameUI"]
+visible = false
 anchors_preset = 0
 offset_left = 4.0
 offset_top = 4.0
@@ -272,6 +273,7 @@ theme_override_font_sizes/font_size = 500
 text = "1329139"
 
 [node name="GameOver" type="Control" parent="Game/GameUI"]
+visible = false
 layout_mode = 1
 anchors_preset = 0
 offset_left = 175.0
@@ -316,7 +318,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Menu" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -502,9 +503,6 @@ libraries = {
 "": SubResource("AnimationLibrary_fje6x")
 }
 
-[connection signal="EndGame" from="Game" to="Game/Player" method="_on_game_end_game"]
-[connection signal="EndGame" from="Game" to="Game/CopSpawner" method="_on_game_end_game"]
-[connection signal="EndGame" from="Game" to="Game/GrenadeSpawner" method="_on_game_end_game"]
 [connection signal="StartGame" from="Game" to="Game/Player" method="_on_game_start_game"]
 [connection signal="StartGame" from="Game" to="Game/CopSpawner" method="_on_game_start_game"]
 [connection signal="StartGame" from="Game" to="Game/GrenadeSpawner" method="_on_game_start_game"]

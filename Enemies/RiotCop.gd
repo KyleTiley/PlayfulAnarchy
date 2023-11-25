@@ -23,7 +23,7 @@ func _on_area_2d_area_entered(area):
 			return
 		knock_back(area)
 		$Area2D/CollisionShape2D.set_deferred("disabled", true)
-		Game.score += 50
+		Game.score += 50 
 		await get_tree().create_timer(0.3).timeout
 		self.queue_free()
 	if area.get_parent().name == "Skateboard":
@@ -35,8 +35,8 @@ func shield_break(_area):
 	shield_broken = true
 	$AnimationPlayer.play("break_shield")
 	var direction = (self.global_position - _area.get_parent().global_position)
-	self.move_local_x(direction.x * knockback_strength * 2)
-	self.move_local_y(direction.y * knockback_strength * 2)
+	self.move_local_x(direction.x * knockback_strength)
+	self.move_local_y(direction.y * knockback_strength)
 	await get_tree().create_timer(0.3).timeout
 	$Shield.hide()
 

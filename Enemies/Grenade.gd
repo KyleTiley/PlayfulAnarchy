@@ -11,7 +11,6 @@ var duration = 2.0
 
 func throw():
 	positionA = self.position
-	print(self.name)
 	positionB = player.position
 	positionC = Vector2(self.position.x, self.position.y - player.position.y)
 	await get_tree().create_timer(3).timeout
@@ -34,4 +33,4 @@ func _on_area_2d_area_entered(area):
 	if !has_exploded:
 		return
 	if area.get_parent().name == "Guitar" or area.get_parent().name == "Skateboard" or area.get_parent().name == "Player":
-		Game.restart_game()
+		get_tree().quit()
