@@ -48,5 +48,5 @@ func _on_game_start_game():
 func _on_game_end_game(cause_of_death):
 	game_started = false
 	print("Died to: " + cause_of_death)
-	self.hide()
+	self.queue_free()
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)

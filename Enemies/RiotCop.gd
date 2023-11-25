@@ -8,6 +8,8 @@ var shield_broken = false
 var knockback_strength = 0.5
 
 func _physics_process(delta):
+	if !is_instance_valid(player):
+		return
 	var x_diff = global_position.x - player.global_position.x
 	var y_diff = global_position.y - player.global_position.y
 	scale.x = 1 * sign(x_diff)

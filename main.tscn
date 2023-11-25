@@ -298,6 +298,7 @@ enabled = false
 zoom = Vector2(0.635, 0.635)
 
 [node name="GameUI" type="Control" parent="Game"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -305,7 +306,6 @@ offset_bottom = 40.0
 script = ExtResource("6_cgp47")
 
 [node name="Score" type="Control" parent="Game/GameUI"]
-visible = false
 anchors_preset = 0
 offset_left = 4.0
 offset_top = 4.0

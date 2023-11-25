@@ -7,7 +7,6 @@ func _process(_delta):
 	$Score/Label.text = str(Game.score)
 
 func _on_game_end_game(cause_of_death):
-	$Score.hide()
 	$GameOver.show()
 	match cause_of_death:
 		"cop":
