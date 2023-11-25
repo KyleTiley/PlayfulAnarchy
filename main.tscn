@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://l8mvkp42x1c0"]
+[gd_scene load_steps=18 format=3 uid="uid://l8mvkp42x1c0"]
 
 [ext_resource type="Texture2D" uid="uid://8f772loc4266" path="res://Assets/Floor.png" id="1_0lssa"]
 [ext_resource type="Script" path="res://Game.gd" id="1_2n5kd"]
@@ -11,7 +11,9 @@
 [ext_resource type="FontFile" uid="uid://j3p0hpvourpq" path="res://Assets/pixeltiley.ttf" id="9_feiii"]
 [ext_resource type="Texture2D" uid="uid://0iyvixp4ps5x" path="res://Assets/RulesButton1.png" id="9_gkb0k"]
 [ext_resource type="Texture2D" uid="uid://def1gqg4cmopf" path="res://Assets/RulesButton2.png" id="10_60i2t"]
+[ext_resource type="Texture2D" uid="uid://rrm117ghto32" path="res://Assets/RulesPopup.png" id="11_vi1af"]
 [ext_resource type="Texture2D" uid="uid://c4adfwv0se44x" path="res://Assets/NO.png" id="12_3a6oy"]
+[ext_resource type="Texture2D" uid="uid://p7ggmtbyy8kn" path="res://Assets/CloseButton.png" id="12_tmwf6"]
 [ext_resource type="Texture2D" uid="uid://bm5swhtfn7v1s" path="res://Assets/Exclame.png" id="13_ndpvt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbo67"]
@@ -167,49 +169,77 @@ texture_hover = ExtResource("10_60i2t")
 
 [node name="TextureRect" type="TextureRect" parent="Menu/RulesButton"]
 layout_mode = 0
-offset_left = 6.0
+offset_left = 7.0
 offset_top = 3.5
-offset_right = 33.0
+offset_right = 34.0
 offset_bottom = 28.5
 texture = ExtResource("12_3a6oy")
 
 [node name="Label" type="Label" parent="Menu/RulesButton"]
 texture_filter = 1
-offset_left = 35.5
-offset_top = 6.0
-offset_right = 132.5
-offset_bottom = 39.0
+offset_left = 41.0
+offset_top = 7.5
+offset_right = 123.0
+offset_bottom = 36.5
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("9_feiii")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 text = "RULES"
 
 [node name="TextureRect2" type="TextureRect" parent="Menu/RulesButton"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 133.5
-offset_top = 5.0
-offset_right = 137.5
-offset_bottom = 28.0
+offset_left = 128.5
+offset_top = 4.0
+offset_right = 132.5
+offset_bottom = 27.0
 texture = ExtResource("13_ndpvt")
 
 [node name="TextureRect3" type="TextureRect" parent="Menu/RulesButton"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 141.5
-offset_top = 4.5
-offset_right = 145.5
-offset_bottom = 27.5
+offset_left = 138.0
+offset_top = 3.5
+offset_right = 142.0
+offset_bottom = 26.5
 texture = ExtResource("13_ndpvt")
 
 [node name="TextureRect4" type="TextureRect" parent="Menu/RulesButton"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 149.0
-offset_top = 4.0
-offset_right = 153.0
-offset_bottom = 27.0
+offset_left = 147.5
+offset_top = 5.0
+offset_right = 151.5
+offset_bottom = 28.0
 texture = ExtResource("13_ndpvt")
+
+[node name="Rules" type="Control" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Menu/Rules"]
+texture_filter = 1
+layout_mode = 1
+offset_left = 152.0
+offset_top = 12.0
+offset_right = 248.0
+offset_bottom = 108.0
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("11_vi1af")
+
+[node name="TextureButton" type="TextureButton" parent="Menu/Rules"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 413.0
+offset_top = 23.0
+offset_right = 445.0
+offset_bottom = 55.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("12_tmwf6")
 
 [connection signal="StartGame" from="Game" to="Game/Player" method="_on_game_start_game"]
 [connection signal="StartGame" from="Game" to="Game/CopSpawner" method="_on_game_start_game"]
