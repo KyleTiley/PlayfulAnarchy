@@ -32,5 +32,6 @@ func _on_area_2d_area_entered(area):
 func knock_back(_area):
 	var direction = (self.global_position - _area.get_parent().global_position)
 	$AnimationPlayer.play("white_hit")
+	$Riff.play()
 	self.move_local_x(direction.x * knockback_strength)
 	self.move_local_y(direction.y * knockback_strength)

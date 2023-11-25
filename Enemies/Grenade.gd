@@ -26,7 +26,11 @@ func explode():
 	has_exploded = true
 	$Sprite2D.hide()
 	$AnimationPlayer.play("explode")
-	await get_tree().create_timer(0.2).timeout
+	$Boom.play()
+	await get_tree().create_timer(0.5).timeout
+	$Explosion.hide()
+	$Explosion/Area2D/CollisionShape2D.set_deferred("disabled", true)
+	await get_tree().create_timer(2).timeout
 	queue_free()
 
 func _on_area_2d_area_entered(area):
