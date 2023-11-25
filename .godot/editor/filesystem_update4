@@ -1,11 +1,2 @@
-res://Enemies/cop.tscn
-res://Enemies/white_flash.gdshader
-res://Enemies/Cop.gd
 res://main.tscn
-res://Enemies/grenade.tscn
-res://Enemies/riotcop.tscn
-res://Player/player.tscn
-res://Game.gd
-res://Enemies/CopSpawner.gd
-res://Enemies/RiotCop.gd
-res://Enemies/Grenade.gd
+res://Enemies/white_flash.gdshader

@@ -115,13 +115,13 @@ tracks/2/keys = {
 "values": [0.0, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_0x3te"]
-resource_name = "white_hit"
+[sub_resource type="Animation" id="Animation_rps0o"]
+resource_name = "break_shield"
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_opacity")
+tracks/0/path = NodePath("Shield/Sprite2D:material:shader_parameter/flash_opacity")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -131,13 +131,13 @@ tracks/0/keys = {
 "values": [1.0, 1.0, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_rps0o"]
-resource_name = "break_shield"
+[sub_resource type="Animation" id="Animation_0x3te"]
+resource_name = "white_hit"
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Shield/Sprite2D:material:shader_parameter/flash_opacity")
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_opacity")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
