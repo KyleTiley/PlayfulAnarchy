@@ -27,6 +27,8 @@ func random_number_generator(_min, _max):
 	var new_random_number = rng.randf_range(_min, _max)
 	return new_random_number
 
-
 func _on_game_start_game():
 	game_started = true
+
+func _on_game_end_game():
+	game_started = false

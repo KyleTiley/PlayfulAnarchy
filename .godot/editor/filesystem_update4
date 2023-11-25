@@ -8,3 +8,8 @@ res://Menu.gd
 res://Game.gd
 res://Enemies/RiotCop.gd
 res://Enemies/Cop.gd
+res://Enemies/CopSpawner.gd
+res://Enemies/GrenadeSpawner.gd
+res://Player/Player.gd
+res://global.gd
+res://Enemies/Grenade.gd

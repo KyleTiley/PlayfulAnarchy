@@ -28,7 +28,7 @@ func _on_area_2d_area_entered(area):
 	if area.get_parent().name == "Skateboard":
 		pass
 	if area.get_parent().name == "Player":
-		get_tree().quit()
+		Game.restart_game()
 
 func shield_break(_area):
 	shield_broken = true

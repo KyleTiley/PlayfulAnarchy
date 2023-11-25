@@ -23,7 +23,7 @@ func _on_area_2d_area_entered(area):
 	if area.get_parent().name == "Skateboard":
 		pass
 	if area.get_parent().name == "Player":
-		get_tree().quit()
+		Game.restart_game()
 
 func knock_back(_area):
 	var direction = (self.global_position - _area.get_parent().global_position)

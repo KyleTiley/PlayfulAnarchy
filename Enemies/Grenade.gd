@@ -34,4 +34,4 @@ func _on_area_2d_area_entered(area):
 	if !has_exploded:
 		return
 	if area.get_parent().name == "Guitar" or area.get_parent().name == "Skateboard" or area.get_parent().name == "Player":
-		get_tree().quit()
+		Game.restart_game()
