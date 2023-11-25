@@ -236,7 +236,6 @@ enabled = false
 zoom = Vector2(0.635, 0.635)
 
 [node name="GameUI" type="Control" parent="Game"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -271,6 +270,22 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("9_feiii")
 theme_override_font_sizes/font_size = 500
 text = "1329139"
+
+[node name="GameOver" type="Control" parent="Game/GameUI"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 175.0
+offset_top = 40.0
+offset_right = 175.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Game/GameUI/GameOver"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+texture = ExtResource("11_vi1af")
 
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3
