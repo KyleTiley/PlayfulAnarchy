@@ -36,7 +36,7 @@ func _on_area_2d_area_entered(area):
 
 func shield_break(_area):
 	shield_broken = true
-	$AnimationPlayer.play("break_shield")
+	$Shield/AnimationPlayer.play("break_shield")
 	$ShieldCrack.play()
 	var direction = (self.global_position - _area.get_parent().global_position)
 	self.move_local_x(direction.x * knockback_strength)

@@ -1,7 +1,7 @@
 extends Node2D
 
 var spawn_locations = []
-var spawn_time = 3
+var spawn_time = 10000
 var time_count = spawn_time
 var grenade = load("res://Enemies/grenade.tscn")
 
