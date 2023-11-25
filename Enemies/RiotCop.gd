@@ -39,8 +39,8 @@ func shield_break(_area):
 	$Shield/AnimationPlayer.play("break_shield")
 	$ShieldCrack.play()
 	var direction = (self.global_position - _area.get_parent().global_position)
-	self.move_local_x(direction.x * knockback_strength)
-	self.move_local_y(direction.y * knockback_strength)
+	self.move_local_x(direction.x * knockback_strength * 3)
+	self.move_local_y(direction.y * knockback_strength * 3)
 	await get_tree().create_timer(0.3).timeout
 	$Shield.hide()
 
