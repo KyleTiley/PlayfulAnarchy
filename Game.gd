@@ -1,7 +1,5 @@
 extends Node2D
 
-var score = 0 
-
 signal StartGame
 signal EndGame
 
@@ -19,3 +17,4 @@ func restart_game():
 
 func _on_try_again_pressed():
 	restart_game()
+	Global.score = 0

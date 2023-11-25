@@ -13,7 +13,7 @@ func _physics_process(delta):
 	player_movement(delta)
 	count += delta
 	if count > 0.5:
-		Game.score += 1
+		Global.score += 1
 		count = 0
 
 func player_movement(_delta):

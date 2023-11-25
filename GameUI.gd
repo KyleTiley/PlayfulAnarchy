@@ -1,10 +1,10 @@
 extends Control
 
 func _ready():
-	$Score/Label.text = str(Game.score)
+	$Score/Label.text = str(Global.score)
 
 func _process(_delta):
-	$Score/Label.text = str(Game.score)
+	$Score/Label.text = str(Global.score)
 
 func _on_game_end_game(cause_of_death):
 	$GameOver.show()
