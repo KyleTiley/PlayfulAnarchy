@@ -415,10 +415,10 @@ Gather your bits
 and RIOT again!"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Game/GameUI/GameOver"]
-autoplay = "button"
 libraries = {
 "": SubResource("AnimationLibrary_ihhnj")
 }
+autoplay = "button"
 
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3
@@ -601,10 +601,10 @@ Watch out for grenades though,
 you need legs to fight the power!"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Menu"]
-autoplay = "menu"
 libraries = {
 "": SubResource("AnimationLibrary_fje6x")
 }
+autoplay = "menu"
 
 [node name="TextureRect" type="TextureRect" parent="Menu"]
 texture_filter = 1

@@ -260,10 +260,10 @@ libraries = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "bob"
 libraries = {
 "": SubResource("AnimationLibrary_8lp1j")
 }
+autoplay = "bob"
 
 [node name="Riff" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_deamn")

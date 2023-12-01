@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1700989416
+::res://::1701424226
 Game.gd::GDScript::-1::1700989403::0::1::::<>Node2D<>::
 GameUI.gd::GDScript::-1::1700989403::0::1::::<>Control<>::
 global.gd::GDScript::-1::1700989403::0::1::::<>Node<>::
@@ -29,7 +29,7 @@ RulesButton2.png::CompressedTexture2D::7451929521940306139::1700989403::17009894
 RulesPopup.png::CompressedTexture2D::1229081213543867475::1700989403::1700989403::1::::<><>::
 ScoreBack.png::CompressedTexture2D::8485383810390565567::1700989403::1700989403::1::::<><>::
 Skateboard.png::CompressedTexture2D::2024615683129888604::1700737048::1700825180::1::::<><>::
-::res://Enemies/::1700989403
+::res://Enemies/::1700990512
 Cop.gd::GDScript::-1::1700989403::0::1::::<>Node2D<>::
 cop.tscn::PackedScene::6246361319886806893::1700989403::0::1::::<><>::res://Enemies/Cop.gd<>res://Enemies/white_flash.gdshader<>uid://b4rejmvvcif0n::::res://Assets/Cop.png<>uid://bscvbffwm1yx3::::res://Sounds/Riff.mp3
 CopSpawner.gd::GDScript::-1::1700989403::0::1::::<>Node2D<>::
@@ -38,7 +38,7 @@ grenade.tscn::PackedScene::6639705685270040349::1700989403::0::1::::<><>::res://
 GrenadeSpawner.gd::GDScript::-1::1700989403::0::1::::<>Node2D<>::
 RiotCop.gd::GDScript::-1::1700989403::0::1::::<>Node2D<>::
 riotcop.tscn::PackedScene::1947173495548855180::1700989403::0::1::::<><>::res://Enemies/RiotCop.gd<>uid://b4rejmvvcif0n::::res://Assets/Cop.png<>res://Enemies/white_flash.gdshader<>uid://bs6217l03mnwl::::res://Assets/Riotshield.png<>uid://bscvbffwm1yx3::::res://Sounds/Riff.mp3<>uid://dvfi0p84q4aq2::::res://Sounds/Shield.wav
-white_flash.gdshader::Shader::-1::1700846661::0::1::::<><>::
+white_flash.gdshader::Shader::-1::1700990512::0::1::::<><>::
 ::res://Player/::1700989403
 Guitar.gd::GDScript::-1::1700742284::0::1::::<>Node2D<>::
 Player.gd::GDScript::-1::1700989403::0::1::::<>Node2D<>::
